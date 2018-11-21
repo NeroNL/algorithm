@@ -22,16 +22,16 @@ import java.util.Map;
  * words[i] and prefix, suffix queries consist of lowercase letters only.
  */
 
-class TrieNode {
-    TrieNode[] children;
-    int weight;
-    public TrieNode() {
-        children = new TrieNode[27];
-        weight = 0;
-    }
-}
-
 public class PrefixAndSuffixSearch {
+
+    class TrieNode {
+        TrieNode[] children;
+        int weight;
+        public TrieNode() {
+            children = new TrieNode[27];
+            weight = 0;
+        }
+    }
 
     TrieNode trie;
 
