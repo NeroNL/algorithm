@@ -1,4 +1,4 @@
-package uber;
+package 优步;
 
 
 import java.util.*;
@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class MeetingRoomsII {
 
-    class Interval{
+    public class Interval{
         int start, end;
         Interval() {
             this.start = 0;

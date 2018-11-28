@@ -1,8 +1,5 @@
-package uber;
+package 优步;
 
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Given many words, words[i] has weight i.
