@@ -73,9 +73,35 @@ public class LongestIncreasingSubsequence {
         return len;
     }
 
+    public int LIS(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        list.add(nums[0]);
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] > list.get(list.size()-1)) {
+                list.add(nums[i]);
+            } else {
+                for (int j = list.size() - 1; j >= 0; --j) {
+                    if (nums[i] <= list.get(j) && !list.contains(nums[i])) {
+                        list.set(j, nums[i]);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return list.size();
+    }
+
     public static void main(String[] args) {
         int[] nums = {10,9,2,5,3,7,101,18};
         LongestIncreasingSubsequence longestIncreasingSubsequence = new LongestIncreasingSubsequence();
+        long current = System.currentTimeMillis();
         System.out.println(longestIncreasingSubsequence.lengthOfLISNlogN(nums));
+        long post = System.currentTimeMillis();
+        System.out.println((float)(post - current));
+        current = System.currentTimeMillis();
+        System.out.println(longestIncreasingSubsequence.LIS(nums));
+        post = System.currentTimeMillis();
+        System.out.println((float)(post - current));
     }
 }
