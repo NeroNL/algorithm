@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Given a list of unique words, find all pairs of distinct indices (i, j) in the given list, so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
+ * Given a list of unique words, find all pairs of distinct indices (i, j) in the given list,
+ * so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
  *
  * Example 1:
  *
@@ -22,8 +23,11 @@ public class PalidromePair {
 
     class Trie {
         Trie[] children = new Trie[26];
+        // if there is palindrome inside same string, record it;
+        // there could be a case that there are multiple same string in the test cases
         List<Integer> pos = new ArrayList<>();
 
+        // index
         int id;
         boolean isLeaf;
 

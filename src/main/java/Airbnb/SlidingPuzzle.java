@@ -62,7 +62,7 @@ public class SlidingPuzzle {
             }
         }
 
-        int[][] dirs = new int[][]{{1,3}, {0,2,4}, {1,5}, {0,4}, {1,3,5}, {2,4}};
+        int[][] dirs = {{1,3}, {0,2,4}, {1,5}, {0,4}, {1,3,5}, {2,4}};
 
         Set<String> set = new HashSet<>();
         Queue<String> queue =new LinkedList<>();
