@@ -1,6 +1,6 @@
 package 优步;
 
-import 优步.MeetingRoomsII.Interval;
+import generalClass.Interval;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
