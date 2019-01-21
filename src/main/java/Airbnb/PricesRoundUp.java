@@ -1,7 +1,9 @@
 package Airbnb;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 
 /**
@@ -82,6 +84,43 @@ public class PricesRoundUp {
     }
 
 
+    class Node {
+        double diff;
+        Float val;
+
+        Node(double diff, Float val) {
+            this.diff = diff;
+            this.val = val;
+        }
+    }
+
+
+    public List<Integer> solve2(List<Float> prices) {
+        double sum = 0;
+        int floorSum = 0;
+        PriorityQueue<Node> pq = new PriorityQueue<>((Node a, Node b) -> Double.compare(b.diff, a.diff));
+        for (Float price : prices) {
+            floorSum += Math.floor(price);
+            sum += price;
+            pq.offer(new Node(price - Math.floor(price), price));
+        }
+
+        int diff = (int)Math.round(sum) - floorSum;
+
+        List<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < diff; ++i) {
+            list.add((int)Math.ceil(pq.poll().val));
+        }
+
+        while(!pq.isEmpty()) {
+            list.add((int)Math.floor(pq.poll().val));
+        }
+
+        return list;
+    }
+
+
     public static void main(String[] args) {
         List<Float> list = new ArrayList<>();
         list.add(1.2f);
@@ -91,6 +130,14 @@ public class PricesRoundUp {
         List<Integer> ret = pricesRoundUp.solve(list);
 
         for (Integer i : ret) {
+            System.out.println(i);
+        }
+
+
+        System.out.println("#################   Solution 2   ##################");
+        List<Integer> ret1 = pricesRoundUp.solve2(list);
+
+        for (Integer i : ret1) {
             System.out.println(i);
         }
     }

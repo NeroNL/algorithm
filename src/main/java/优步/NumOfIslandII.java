@@ -1,5 +1,7 @@
 package 优步;
 
+import generalClass.UnionFind;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,66 +47,6 @@ import java.util.List;
  */
 
 public class NumOfIslandII {
-
-    class UnionFind {
-
-        int count;
-        int[] parent;
-        int[] rank;
-
-
-
-        private UnionFind(int N) {
-            count = 0;
-            parent = new int[N];
-            rank = new int[N];
-            for (int i = 0; i < N; ++i) {
-                parent[i] = -1;
-                rank[i] = 0;
-            }
-        }
-
-
-        public boolean isValid(int i) {
-            return parent[i] >= 0;
-        }
-
-        public void setParent(int i) {
-            parent[i] = i;
-            ++count;
-        }
-
-        public int find(int i) {
-            if (parent[i] != i) {
-                parent[i] = find(parent[i]);
-            }
-            return parent[i];
-        }
-
-        public void union(int x, int y) {
-            int rootx = find(x);
-            int rooty = find(y);
-
-            if (rootx != rooty) {
-                if (rootx > rooty) {
-                    parent[rooty] = rootx;
-                    rank[rooty] += 1;
-                } else if (rank[rootx] < rank[rooty]) {
-                    parent[rootx] = rooty;
-                } else {
-                    parent[rooty] = rootx;
-                    rank[rootx] += 1;
-                }
-                --count;
-            }
-        }
-
-        public int getCount() {
-            return count;
-        }
-    }
-
-
 
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
         List<Integer> ret = new ArrayList<>();

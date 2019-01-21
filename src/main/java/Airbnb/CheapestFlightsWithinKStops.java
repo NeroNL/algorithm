@@ -85,7 +85,7 @@ public class CheapestFlightsWithinKStops {
             visited.add(curr.dest);
 
             List<Node> currNodes = map.getOrDefault(curr.dest,new ArrayList<Node>());
-            if(curr.stop > 0){ // No need to go further and add into queue if the no.stops already crossed for curr
+            if(curr.stop > 0){ // No need to go further and add into stack if the no.stops already crossed for curr
                 for(Node e: currNodes){
                     if(!visited.contains(e.dest)){
                         pq.add(new Node(e.dest, curr.cost + e.cost, curr.stop - 1));
