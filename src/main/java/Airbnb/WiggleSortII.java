@@ -76,6 +76,11 @@ public class WiggleSortII {
 
     public void wiggleSort(int[] nums) {
         int median = findKthLargest(nums, nums.length / 2);
+
+        for (int num : nums) {
+            System.out.println(num);
+        }
+
         int i = 0, left = 0, n = nums.length, right = n - 1;
         while (i <= right) {
             if (nums[getVirtualIndex(i,n)] > median) {
@@ -88,5 +93,12 @@ public class WiggleSortII {
                 i++;
             }
         }
+    }
+
+
+    public static void main(String[] args) {
+        int[] nums = {3,4,2,5,1};
+        WiggleSortII wiggleSortII = new WiggleSortII();
+        wiggleSortII.wiggleSort(nums);
     }
 }
