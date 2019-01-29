@@ -80,6 +80,7 @@ public class TenWizard {
         list0.add(4);
         list0.add(5);
         ArrayList<Integer> list4 = wizards[4];
+        list4.add(0);
         list4.add(9);
 
         System.out.println(tenWizard.solve(wizards));

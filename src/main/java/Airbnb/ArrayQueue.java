@@ -13,7 +13,7 @@ public class ArrayQueue<T> {
     public ArrayQueue(int size) {
         this.size = size <= 0 ? 5 : size;
         this.head = 0;
-        this.i = 0;
+        this.i = size-1;
         this.hi = 0;
         lists = new ArrayList<>();
         lists.add(new ArrayList<>());
@@ -33,6 +33,7 @@ public class ArrayQueue<T> {
 
     public T poll() {
         if (hi >= size || hi >= lists.get(head).size()) {
+            lists.get(head).clear();
             head++;
             hi = 0;
         }

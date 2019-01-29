@@ -1,6 +1,7 @@
 package Airbnb;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,29 +25,35 @@ import java.util.List;
  */
 public class Vector2D implements Iterator<Integer> {
 
-    List<Iterator<Integer>> lists;
-    int i = 0;
-    Iterator<Integer> cur;
+    private Iterator<List<Integer>> rowIter;
+    private Iterator<Integer> colIter;
 
     public Vector2D(List<List<Integer>> vec2d) {
-        lists = new ArrayList<>();
-        for (List<Integer> list : vec2d) {
-            lists.add(list.iterator());
-        }
-        cur = lists.get(i++);
+        rowIter = vec2d.iterator();
+        colIter = Collections.emptyIterator();
     }
 
     @Override
     public Integer next() {
-        return cur.next();
+        return colIter.next();
     }
 
     @Override
     public boolean hasNext() {
-        while (i < lists.size() && !cur.hasNext()) {
-            cur = lists.get(i++);
+        while ((colIter == null || !colIter.hasNext() && rowIter.hasNext())) {
+            colIter = rowIter.next().iterator();
         }
-        return cur.hasNext();
+        return colIter.hasNext();
+    }
+
+    @Override
+    public void remove() {
+        while(colIter == null && rowIter.hasNext()) {
+            colIter = rowIter.next().iterator();
+        }
+        if (colIter != null) {
+            colIter.remove();
+        }
     }
 
     public static void main(String[] args) {
@@ -66,6 +73,8 @@ public class Vector2D implements Iterator<Integer> {
         Vector2D vector2D = new Vector2D(lists);
         while(vector2D.hasNext()) {
             System.out.println(vector2D.next());
+            vector2D.remove();
         }
+
     }
 }
