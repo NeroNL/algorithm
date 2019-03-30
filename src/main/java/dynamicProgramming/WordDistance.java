@@ -2,7 +2,7 @@ package dynamicProgramming;
 
 
 /**
- * Given string s and t, find out the minimum number of operations to convert s to t.
+ * Given string s and t, findWithDuplicates out the minimum number of operations to convert s to t.
  *
  * Operations:
  * 1. replace a character

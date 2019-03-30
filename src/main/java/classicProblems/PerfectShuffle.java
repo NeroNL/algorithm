@@ -7,7 +7,7 @@ package classicProblems;
 public class PerfectShuffle {
 
     /**
-     * 1st step: given m = num of elements for each category, find k when 2m = 3^k - 1, so that we can divide and conquer
+     * 1st step: given m = num of elements for each category, findWithDuplicates k when 2m = 3^k - 1, so that we can divide and conquer
      * 2nd step: 把数组中的A【m+1,...,n+m]那部分循环右移m位
      * 3rd step: 因对于2m长度的数组来说，刚好有k个圈，且每个圈的头部为3^i, 其中i = 0,1,2,...,k-1,所以对每个圈之星cycleLeader算法，且因数组长度为m，所以需要对2m+1取模
      * 4th step: 对数组的后面部分A[2m+1, ... ,2n]继续地柜使用本算法，这相当于n减少了m

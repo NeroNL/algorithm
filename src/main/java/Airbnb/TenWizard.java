@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * There are 10 wizards, 0-9, you are given a list that each entry is a list of wizards known by wizard.
  * Define the cost between wizards and wizard as square of difference of i and j.
- * To find the min cost between 0 and 9.
+ * To findWithDuplicates the min cost between 0 and 9.
  *
  * For example:
  *

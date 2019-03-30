@@ -2,7 +2,7 @@ package Airbnb;
 
 
 /**
- * Given an unsorted integer array, find the smallest missing positive integer.
+ * Given an unsorted integer array, findWithDuplicates the smallest missing positive integer.
  *
  * Example 1:
  *

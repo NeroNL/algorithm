@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Given a board which is a 2D matrix includes a-z and dictionary dict, find the largest collection of words on the board, the words can not overlap in the same position. return the size of largest collection.
+ * Given a board which is a 2D matrix includes a-z and dictionary dict, findWithDuplicates the largest collection of words on the board, the words can not overlap in the same position. return the size of largest collection.
  *
  * The words in the dictionary are not repeated.
  * You can reuse the words in the dictionary.
