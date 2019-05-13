@@ -1,7 +1,7 @@
 package 亚麻;
 
 
-import generalClass.TreeNode;
+import common.TreeNode;
 
 /**
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.

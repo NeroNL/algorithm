@@ -1,6 +1,6 @@
 package 亚麻;
 
-import generalClass.TreeNode;
+import common.TreeNode;
 
 
 /**

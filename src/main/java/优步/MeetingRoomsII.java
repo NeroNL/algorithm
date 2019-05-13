@@ -1,7 +1,7 @@
 package 优步;
 
 
-import generalClass.Interval;
+import common.Interval;
 
 import java.util.*;
 

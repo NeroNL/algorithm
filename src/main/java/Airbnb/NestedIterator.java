@@ -1,8 +1,8 @@
 package Airbnb;
 
-import generalClass.NestedInteger;
-import generalClass.NestedList;
-import generalClass.NestedObject;
+import common.NestedInteger;
+import common.NestedList;
+import common.NestedObject;
 
 import java.util.*;
 

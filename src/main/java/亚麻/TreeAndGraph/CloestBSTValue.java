@@ -1,6 +1,6 @@
 package 亚麻.TreeAndGraph;
 
-import generalClass.TreeNode;
+import common.TreeNode;
 
 /**
  * Given a non-empty binary search tree and a target value, findWithDuplicates the value in the BST that is closest to the target.

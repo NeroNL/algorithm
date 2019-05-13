@@ -1,7 +1,7 @@
 package Airbnb;
 
 
-import generalClass.Interval;
+import common.Interval;
 
 import java.util.ArrayList;
 import java.util.List;

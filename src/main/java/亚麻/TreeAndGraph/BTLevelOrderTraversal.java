@@ -1,7 +1,7 @@
 package 亚麻.TreeAndGraph;
 
 
-import generalClass.TreeNode;
+import common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

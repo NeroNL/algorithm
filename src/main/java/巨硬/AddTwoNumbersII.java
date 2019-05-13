@@ -1,6 +1,6 @@
 package 巨硬;
 
-import generalClass.ListNode;
+import common.ListNode;
 
 import java.util.Stack;
 

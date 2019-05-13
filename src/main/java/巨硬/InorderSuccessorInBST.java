@@ -1,6 +1,6 @@
 package 巨硬;
 
-import generalClass.TreeNode;
+import common.TreeNode;
 
 public class InorderSuccessorInBST {
 

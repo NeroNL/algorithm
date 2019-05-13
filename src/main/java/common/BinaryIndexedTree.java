@@ -1,4 +1,4 @@
-package generalClass;
+package common;
 
 public class BinaryIndexedTree {
 

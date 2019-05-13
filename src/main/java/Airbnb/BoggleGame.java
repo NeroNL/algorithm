@@ -1,6 +1,6 @@
 package Airbnb;
 
-import generalClass.Trie;
+import common.Trie;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -32,7 +32,7 @@ public class KeyValueDatabase {
 
     public static void main (String[] str) {
         try {
-            InputStream inputStream = new FileInputStream("/Users/Nero/IdeaProjects/algorithm/src/main/java/generalClass/ReadWriteLock.java");
+            InputStream inputStream = new FileInputStream("/Users/Nero/IdeaProjects/algorithm/src/main/java/common/ReadWriteLock.java");
             byte[] bytes = new byte[22];
             inputStream.read(bytes);
             for (byte b : bytes) {

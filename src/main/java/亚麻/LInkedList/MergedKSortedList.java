@@ -1,6 +1,6 @@
 package 亚麻.LInkedList;
 
-import generalClass.ListNode;
+import common.ListNode;
 
 
 /**

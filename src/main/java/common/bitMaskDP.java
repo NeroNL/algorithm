@@ -1,4 +1,4 @@
-package generalClass;
+package common;
 
 public class bitMaskDP {
     private static int _1(int x){

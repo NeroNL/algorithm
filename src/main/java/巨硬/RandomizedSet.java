@@ -1,7 +1,5 @@
 package 巨硬;
 
-import generalClass.ListNode;
-
 import java.util.*;
 
 /**

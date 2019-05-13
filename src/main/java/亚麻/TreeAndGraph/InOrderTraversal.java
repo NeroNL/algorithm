@@ -1,6 +1,6 @@
 package 亚麻.TreeAndGraph;
 
-import generalClass.TreeNode;
+import common.TreeNode;
 
 /**
  * Given a binary search tree and a node in it, findWithDuplicates the in-order successor of that node in the BST.
