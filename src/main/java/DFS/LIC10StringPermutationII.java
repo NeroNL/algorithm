@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class StringPermutationII {
+public class LIC10StringPermutationII {
     public List<String> stringPermutation2(String str) {
         char[] strArr = str.toCharArray();
         boolean[] isUsed = new boolean[strArr.length];
