@@ -1,5 +1,8 @@
 package Tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Given a binary tree,
  * return the values of its boundary in anti-clockwise direction starting from root.
@@ -55,5 +58,70 @@ package Tree;
  *
  */
 public class LC545BoundaryOfBinaryTree {
+
+    private List<Integer> ans = new ArrayList<Integer>();
+
+    /**
+     * @param root: a TreeNode
+     * @return: a list of integer
+     */
+    public List<Integer> boundaryOfBinaryTree(TreeNode root) {
+        if (root == null) {
+            return ans;
+        }
+
+        ans.add(root.val);
+        if (root.left == null && root.right == null) {
+            return ans;
+        }
+
+        dfsLeft(root.left);
+        dfsLeaf(root);
+        dfsRight(root.right);
+        return ans;
+    }
+
+    private void dfsLeft(TreeNode rt) {
+        if (rt == null || (rt.left == null && rt.right == null)) {
+            return;
+        }
+
+        ans.add(rt.val);
+        if (rt.left != null) {
+            dfsLeft(rt.left);
+        } else {
+            dfsLeft(rt.right);
+        }
+    }
+
+    private void dfsLeaf(TreeNode rt) {
+        if (rt == null) {
+            return;
+        }
+
+        if (rt.left == null && rt.right == null) {
+            ans.add(rt.val);
+            return;
+        }
+
+        dfsLeaf(rt.left);
+        dfsLeaf(rt.right);
+    }
+
+    private void dfsRight(TreeNode rt) {
+        if (rt == null || (rt.left == null && rt.right == null)) {
+            return;
+        }
+
+        // 能往右就往右 没有右边的时候才考虑左边
+        if (rt.right != null) {
+            dfsRight(rt.right);
+        } else {
+            dfsRight(rt.left);
+        }
+
+        // 注意这里是后根遍历 先右再左 最后递归回来的路上放结果
+        ans.add(rt.val);
+    }
 
 }
