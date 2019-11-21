@@ -65,7 +65,7 @@ public class LC694NumberOfDistinctIslands {
                      StringBuilder sb,
                      boolean[][] vis, int[] di, int[] dj) {
         vis[i][j] = true;
-        sb.append((i - ri) + "" + (j - rj));
+        sb.append((i - ri) + "" + (j - rj) + " ");
 
         for (int k = 0; k < 4; k++) {
             int ni = i + di[k], nj = j + dj[k];
