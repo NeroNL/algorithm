@@ -2,6 +2,7 @@ package Airbnb;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CombinationSum {
@@ -14,11 +15,12 @@ public class CombinationSum {
         for (int i = 1; i <= target; ++i) {
             List<List<Integer>> lists = new ArrayList<>();
             for (int j = 0; j < arr.length && arr[j] <= i; ++j) {
-                if (i == arr[j]) lists.add(Arrays.asList(arr[j]));
-                else{
+                if (i == arr[j]) {
+                    lists.add(Collections.singletonList(arr[j]));
+                } else{
                     for (List<Integer> l : dp.get(i-arr[j]-1)) {
                         if (arr[j] <= l.get(0)) {
-                            List cl = new ArrayList();
+                            List<Integer> cl = new ArrayList<>();
                             cl.add(arr[j]);
                             cl.addAll(l);
                             lists.add(cl);

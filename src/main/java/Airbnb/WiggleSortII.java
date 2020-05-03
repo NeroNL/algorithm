@@ -55,14 +55,14 @@ public class WiggleSortII {
         Random random = new Random();
         int pivot_index = left + random.nextInt(right - left);
 
-        pivot_index = partition(nums, left, right, pivot_index);
+        int store_index = partition(nums, left, right, pivot_index);
 
-        if (k == pivot_index) {
+        if (k == store_index) {
             return nums[k];
-        } else if(k < pivot_index){
-            return quickSelect(nums, left, pivot_index - 1, k);
+        } else if(k < store_index){
+            return quickSelect(nums, left, store_index - 1, k);
         } else {
-            return quickSelect(nums, pivot_index + 1, right, k);
+            return quickSelect(nums, store_index + 1, right, k);
         }
     }
 

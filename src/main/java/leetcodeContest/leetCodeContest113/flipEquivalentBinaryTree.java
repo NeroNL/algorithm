@@ -1,4 +1,4 @@
-package leetCodeContest113;
+package leetcodeContest.leetCodeContest113;
 
 
 /**
