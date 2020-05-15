@@ -2,6 +2,13 @@ package sorting;
 
 import common.CommonUtils;
 
+/**
+ * Worst-case performance	{\displaystyle O(n\log n)}O(n\log n)
+ * Best-case performance	{\displaystyle O(n\log n)}O(n\log n) (distinct keys)
+ * or {\displaystyle O(n)}O(n) (equal keys)
+ * Average performance	{\displaystyle O(n\log n)}O(n\log n)
+ * Worst-case space complexity	{\displaystyle O(n)}O(n) total {\displaystyle O(1)}O(1) auxiliary
+ */
 public class HeapSort {
 
     private static void maxifyHeap(int[] arr, int start, int end) {
