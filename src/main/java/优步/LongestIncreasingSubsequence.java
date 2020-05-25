@@ -74,22 +74,21 @@ public class LongestIncreasingSubsequence {
     }
 
     public int LIS(int[] nums) {
-        List<Integer> list = new ArrayList<>();
-        list.add(nums[0]);
-        for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] > list.get(list.size()-1)) {
-                list.add(nums[i]);
-            } else {
-                for (int j = list.size() - 1; j >= 0; --j) {
-                    if (nums[i] <= list.get(j) && !list.contains(nums[i])) {
-                        list.set(j, nums[i]);
-                        break;
-                    }
+        if (nums.length == 0) return 0;
+        int n = nums.length,ans = 0;
+        int[] dp = new int[n];
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[j], dp[i]);
                 }
             }
+            dp[i] += 1;
+            ans = Math.max(ans, dp[i]);
         }
 
-        return list.size();
+        return ans;
     }
 
     public static void main(String[] args) {
