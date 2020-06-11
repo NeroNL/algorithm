@@ -1,4 +1,4 @@
-package Airbnb;
+package pinterest;
 
 import java.util.*;
 
