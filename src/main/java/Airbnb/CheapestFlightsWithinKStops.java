@@ -1,16 +1,7 @@
 package Airbnb;
 
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 /**
  * There are n cities connected by m flights. Each fight starts from city u and arrives at v with a price w.
@@ -102,5 +93,6 @@ public class CheapestFlightsWithinKStops {
         int[][] flights = {{0,1,100}, {1,2,100}, {0,2,500}};
         CheapestFlightsWithinKStops cheapestFlightsWithinKStops = new CheapestFlightsWithinKStops();
         System.out.println(cheapestFlightsWithinKStops.findCheapestPrice(3, flights, 0, 2, 1));
+        System.out.println(cheapestFlightsWithinKStops.findCheapestPrice(3, flights, 0, 2, 0));
     }
 }

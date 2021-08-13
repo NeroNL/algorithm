@@ -1,4 +1,4 @@
-package common;
+package datastructures;
 
 public class SegmentTree {
 
@@ -9,12 +9,12 @@ public class SegmentTree {
 
     public void build(int[] arr, int len) {
         n = len;
+        tree = new int[2*n];
 
         for (int i = 0; i < n; ++i) {
             tree[n+i] = arr[i];
         }
 
-        System.out.println("constructing");
         for (int i = n - 1; i > 0; --i) {
             System.out.println("i: " + i + ", left: " + (i << 1) + ", right: " + (i << 1 | 1));
             //tree[i] = tree[i << 1] + tree[i << 1 | 1];
@@ -23,28 +23,28 @@ public class SegmentTree {
     }
 
     public void updateTreeNode(int p, int value) {
-        System.out.println("updating index: " + p + ", value: " + value);
         p += n;
         tree[p] = value;
 
-        for (int i = p; i > 1; i >>= 1) {
-            System.out.println("i: " + (i >> 1) + ", left: " + i + ", right: " + (i^1));
-            tree[i >> 1] = tree[i] + tree[i^1];
+        while (p > 0) {
+            p /= 2;
+            tree[p] = tree[2*p] + tree[2*p+1];
         }
     }
 
-    public int query(int l, int r) {
-        System.out.println("getting query");
-        int res = 0;
-        for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
-            System.out.println("l: " + l + ", l & 1: " + (l&1) + ", next: "  + ((l+1)>>1));
-            if ((l & 1) > 0) {
+    public int query(int i, int j) {
+        int res = 0, l = i + n, r = j + n;
+        while(l <= r) {
+            if ((l % 2) == 1) {
                 res += tree[l++];
             }
-            System.out.println("r: " + r + ", r & 1: " + (r&1) + ", next: "  + ((r+1)>>1));
-            if ((r & 1) > 0) {
-                res += tree[--r];
+
+            if ((r % 2) == 0) {
+                res += tree[r--];
             }
+
+            l /= 2;
+            r /= 2;
         }
 
         return res;

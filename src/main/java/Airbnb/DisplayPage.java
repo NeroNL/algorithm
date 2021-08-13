@@ -1,10 +1,7 @@
 package Airbnb;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Given an array of CSV strings representing search results, output results sorted by a score initially. A given host may have several listings that show up in these results. Suppose we want to show 12 results per page, but we don’t want the same host to dominate the results.
@@ -22,7 +19,7 @@ public class DisplayPage {
             return res;
         }
 
-        List<String> visited = new ArrayList<>();
+        Set<String> visited = new HashSet<>();
         Iterator<String> iter = input.iterator();
         boolean reachEnd = false;
         while(iter.hasNext()) {
@@ -56,11 +53,12 @@ public class DisplayPage {
         DisplayPage displayPage = new DisplayPage();
         String[] tests = new String[]{
                 "1,28,300.1,SanFrancisco",
+                "1,16,205.1,SanFrancisco",
+                "1,3,5.1,Oakland",
                 "4,5,209.1,SanFrancisco",
                 "20,7,208.1,SanFrancisco",
                 "23,8,207.1,SanFrancisco",
                 "16,10,206.1,Oakland",
-                "1,16,205.1,SanFrancisco",
                 "6,29,204.1,SanFrancisco",
                 "7,20,203.1,SanFrancisco",
                 "8,21,202.1,SanFrancisco",
@@ -80,7 +78,6 @@ public class DisplayPage {
                 "3,19,8.1,SanJose",
                 "3,11,7.1,Oakland",
                 "27,12,6.1,Oakland",
-                "1,3,5.1,Oakland",
                 "25,4,4.1,SanJose",
                 "5,6,3.1,SanJose",
                 "29,22,2.1,SanJose",

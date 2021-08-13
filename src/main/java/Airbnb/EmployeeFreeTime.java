@@ -4,6 +4,7 @@ package Airbnb;
 import common.Interval;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -64,5 +65,39 @@ public class EmployeeFreeTime {
         }
 
         return ret;
+    }
+
+    public List<List<Integer>> solve(int[][] arr) {
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+
+        for (int[] a : arr) {
+            pq.add(new int[]{a[0], 1});
+            pq.add(new int[]{a[1], -1});
+        }
+
+        List<List<Integer>> ans = new ArrayList<>();
+        Integer pre = null;
+        int count = 0;
+        while(!pq.isEmpty()) {
+            int[] node = pq.poll();
+            if (count == 0 && node[1] == 1 && pre != null) {
+                ans.add(Arrays.asList(pre, node[0]));
+            } else if (count == 1 && node[1] == -1) {
+                pre = node[0];
+            }
+            count += node[1];
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        int[][] test1 = {{1,3}, {6,7}, {2,4}, {2,3}, {9,12}};
+
+        EmployeeFreeTime employeeFreeTime = new EmployeeFreeTime();
+        for (List<Integer> list : employeeFreeTime.solve(test1)) {
+            list.forEach(r->System.out.print(r+","));
+            System.out.println("");
+        }
     }
 }

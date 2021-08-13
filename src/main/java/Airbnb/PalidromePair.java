@@ -1,7 +1,6 @@
 package Airbnb;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Given a list of unique words, findWithDuplicates all pairs of distinct indices (i, j) in the given list,
@@ -122,8 +121,48 @@ public class PalidromePair {
         }
 
         return ret;
-
     }
+
+    private boolean isPal(String s) {
+        int l = 0, r = s.length()-1;
+        while (l <= r && s.charAt(l) == s.charAt(r)) {
+            ++l;
+            --r;
+        }
+        return l > r;
+    }
+
+    public List<List<Integer>> palindromePairsSimple(String[] words) {
+        List<List<Integer>> ans = new ArrayList<>();
+        if (words == null || words.length < 2) return ans;
+        Map<String, Integer> map = new HashMap<>();
+        int n = words.length;
+        for (int i = 0; i < n; ++i) map.put(words[i], i);
+
+        for (int i = 0; i < n; ++i) {
+            String w = words[i];
+            int m = w.length();
+            for (int j = 0; j <= m; ++j) {
+                String str1 = w.substring(0, j), str2 = w.substring(j);
+                if (isPal(str1)) {
+                    String rev = new StringBuilder(str2).reverse().toString();
+                    if (map.containsKey(rev) && map.get(rev) != i) {
+                        ans.add(Arrays.asList(map.get(rev), i));
+                    }
+                }
+
+                if (isPal(str2) && !str2.isEmpty()) {
+                    String rev = new StringBuilder(str1).reverse().toString();
+                    if (map.containsKey(rev) && map.get(rev) != i) {
+                        ans.add(Arrays.asList(i, map.get(rev)));
+                    }
+                }
+            }
+        }
+
+        return ans;
+    }
+
 
 
     public static void main(String[] args) {

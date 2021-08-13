@@ -1,6 +1,6 @@
 package 优步;
 
-import common.UnionFind;
+import datastructures.UnionFind;
 
 import java.util.ArrayList;
 import java.util.List;

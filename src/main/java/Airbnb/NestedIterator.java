@@ -8,36 +8,6 @@ import java.util.*;
 
 public class NestedIterator implements Iterator<Integer> {
 
-    /*List<Integer> list = new ArrayList<>();
-    Iterator<Integer> cur;
-
-    private void helper(List<NestedObject> nestedList) {
-        for (NestedObject n : nestedList) {
-            if (n.isInteger()) {
-                list.add(n.getInteger());
-            } else {
-                helper(n.getList());
-            }
-        }
-    }
-
-    public NestedIterator(List<NestedObject> nestedList) {
-        helper(nestedList);
-        cur = list.iterator();
-    }
-
-    @Override
-    public Integer next() {
-        return cur.next();
-    }
-
-    @Override
-    public boolean hasNext() {
-        return cur.hasNext();
-    }*/
-
-
-
     Stack<NestedObject> stack = new Stack<>();
 
     public NestedIterator(List<NestedObject> nestedList) {

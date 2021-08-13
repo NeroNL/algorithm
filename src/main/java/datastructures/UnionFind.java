@@ -1,13 +1,10 @@
-package common;
+package datastructures;
 
 public class UnionFind {
 
     int count;
     int[] parent;
     int[] rank;
-
-
-
     public UnionFind(int N) {
         count = 0;
         parent = new int[N];

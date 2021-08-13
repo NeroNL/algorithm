@@ -23,8 +23,6 @@ package Airbnb;
 public class FirstMissingInteger {
 
     public int firstMissingPositive(int[] nums) {
-
-
         // O(N)
         for (int i = 0; i < nums.length; ++i) {
             // this is constant time b/c it only runs through constant number of elements
@@ -45,5 +43,7 @@ public class FirstMissingInteger {
         return nums.length + 1;
     }
 
+    public static void main(String[] args) {
 
+    }
 }

@@ -107,12 +107,33 @@ public class RegularExpression {
         return ans;
     }
 
+    public boolean regMatch(String source, String pattern) {
+        if (pattern.isEmpty()) return source.isEmpty();
+        if (pattern.length() == 1) {
+            if (source.length() != 1) return false;
+            return source.charAt(0) == pattern.charAt(0);
+        }
+
+        if (!source.isEmpty() && (source.charAt(0) == pattern.charAt(0) || source.charAt(0) == '.')) {
+            if (pattern.charAt(1) == '+') {
+                return regMatch(source.substring(1), pattern.substring(2)) || regMatch(source.substring(1), pattern);
+            } else if (pattern.charAt(1) == '*') {
+                return regMatch(source.substring(1), pattern) || regMatch(source, pattern.substring(2));
+            } else {
+                return regMatch(source.substring(1), pattern.substring(1));
+            }
+        }
+
+        return pattern.charAt(1) == '*' && regMatch(source, pattern.substring(2));
+    }
+
 
     public static void main(String[] args) {
         RegularExpression regularExpression = new RegularExpression();
 
         System.out.println(regularExpression.isMatch("sssssaaaa", "s+a*"));
-        System.out.println(regularExpression.isMatch("aaaa", "s+a*"));
+        System.out.println(regularExpression.regMatch("aaaa", "s+a*"));
+        System.out.println(regularExpression.regMatch("saaaa", "s+a*"));
     }
 
 }

@@ -1,6 +1,6 @@
 package 丢盒子.哦你赛;
 
-import common.SegmentTree;
+import datastructures.SegmentTree;
 
 import java.util.ArrayList;
 import java.util.List;

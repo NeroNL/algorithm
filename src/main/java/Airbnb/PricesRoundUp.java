@@ -7,7 +7,8 @@ import java.util.PriorityQueue;
 
 
 /**
- * 他们公司list价格分成好几个部分，但是都是整数，如果在美金是整数，到了欧洲的网页显示汇率转换之后就变成了floating point，然后要round成整数，但是全部加起来round，和单独round再加起来，结果会不一样
+ * 他们公司list价格分成好几个部分，但是都是整数，如果在美金是整数，到了欧洲的网页显示汇率转换之后就变成了floating point，
+ * 然后要round成整数，但是全部加起来round，和单独round再加起来，结果会不一样
  * # base price    100 =>  131.13   => 131
  * # cleaning fee   20 =>   26.23   => 26
  * # service fee    10 =>   13.54   => 14
@@ -15,7 +16,8 @@ import java.util.PriorityQueue;
  * #                        =>  177.4E   => 178E
  * # sum           135$ => 178.93E => 179E
  *
- * 那么问题就来了，给个input list of floating points, 要求output list of integers, 满足以下两个constraint， 就是和跟Round(x1+x2+... +xn)的结果一样，但是minimize output 和input的绝对值差之和
+ * 那么问题就来了，给个input list of floating points, 要求output list of integers,
+ * 满足以下两个constraint， 就是和跟Round(x1+x2+... +xn)的结果一样，但是minimize output 和input的绝对值差之和
  * #Input: A = [x1, x2, ..., xn]
  * # Sum T = Round(x1+x2+... +xn)  ;  178.93E => 179
  * # Output: B = [y1, y2, ...., yn]
@@ -24,7 +26,7 @@ import java.util.PriorityQueue;
  * # Constraint #2: minimize sum(abs(diff(xi - yi)))
  *
  * 举例
- * # A = [1.2, 2.3, 3.4]-baidu 1point3acres
+ * # A = [1.2, 2.3, 3.4]
  * # Round(1.2 + 2.3 + 3.4) = 6.9 => 7
  * # 1 + 2 + 3 => 6
  *

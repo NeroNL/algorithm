@@ -1,4 +1,4 @@
-package common;
+package datastructures;
 
 public class RedBlackTree {
 
