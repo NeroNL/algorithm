@@ -2,7 +2,7 @@ public class ZeroOut {
 
     public int[][] zero(int[][] matrix) {
 
-        if (matrix == null || matrix.length == 0) return ;
+        if (matrix == null || matrix.length == 0) return new int[0][0];
 
         int n = matrix.length, m = matrix[0].length;
         boolean rowZero = false, colZero = false;
