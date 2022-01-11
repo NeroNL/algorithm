@@ -34,6 +34,30 @@ public class TrappingWater {
         return ret;
     }
 
+    public int trap2Pointer(int[] h) {
+        int n = h.length, l = 0, r = n-1;
+        int ans = 0;
+        int lm = 0, rm = 0;
+        while (l < r) {
+            if (h[l] < h[r]) {
+                if (h[l] >= lm) {
+                    lm = h[l];
+                } else{
+                    ans+=(lm-h[l]);
+                }
+                ++l;
+            } else {
+                if (h[r] >= rm) {
+                    rm = h[r];
+                } else {
+                    ans+=(rm-h[r]);
+                }
+                --r;
+            }
+        }
+        return ans;
+    }
+
 
     public static void main(String[] args) {
         int[] height = {0,1,0,2,1,0,1,3,2,1,2,1};
